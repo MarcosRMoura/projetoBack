@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="admin" id="4">
+        <createTable tableName="grupo_patrocinador">
+            <column name="grupo_codigo" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="pk_grupo_codigo_gp"/>
+            </column>
+            <column name="patrocinador_codigo" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="pk_patrocinador_codigo_gp"/>
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint constraintName="fk_grupo_patrocinador"
+                                 baseTableName="grupo_patrocinador"
+                                 baseColumnNames="grupo_codigo"
+                                 referencedTableName="grupo"
+                                 referencedColumnNames="codigo"/>
+        <addForeignKeyConstraint constraintName="fk_patrocinador_grupo"
+                                 baseTableName="grupo_patrocinador"
+                                 baseColumnNames="patrocinador_codigo"
+                                 referencedTableName="patrocinador"
+                                 referencedColumnNames="codigo"/>
+
+        <rollback>
+            <dropTable tableName="grupo_patrocinador"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

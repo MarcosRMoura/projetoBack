@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="admin" id="9">
+        <createTable tableName="usuario_permissao">
+            <column name="usuario_codigo" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="pk_usuario_codigo_up"/>
+            </column>
+            <column name="permissao_codigo" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="pk_permissao_codigo_up"/>
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint constraintName="fk_usuario_permissao"
+                                 baseTableName="usuario_permissao"
+                                 baseColumnNames="usuario_codigo"
+                                 referencedTableName="usuario"
+                                 referencedColumnNames="codigo"/>
+        <addForeignKeyConstraint constraintName="fk_permissao_usuario"
+                                 baseTableName="usuario_permissao"
+                                 baseColumnNames="permissao_codigo"
+                                 referencedTableName="permissao"
+                                 referencedColumnNames="codigo"/>
+
+        <rollback>
+            <dropTable tableName="usuario_permissao"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

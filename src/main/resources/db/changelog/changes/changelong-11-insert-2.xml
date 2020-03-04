@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="admin" id="11">
+        <insert tableName="plano">
+            <column name="nome" value="Mais Saúde Plus"/>
+            <column name="valormensal" value="500"/>
+        </insert>
+
+        <insert tableName="patrocinador">
+            <column name="razaosocial" value="Mark Web"/>
+            <column name="nomeabreviado" value="MW"/>
+            <column name="descontadoemfolha" value="30"/>
+        </insert>
+
+        <insert tableName="grupo">
+            <column name="plano_codigo" value="1"/>
+            <column name="nome" value="Grupo 30%"/>
+            <column name="ativo" value="true"/>
+        </insert>
+
+        <insert tableName="grupo_patrocinador">
+            <column name="grupo_codigo" value="2"/>
+            <column name="patrocinador_codigo" value="2"/>
+        </insert>
+
+        <insert tableName="pessoa">
+            <column name="nome" value="Wilma Geralda de Moura"/>
+            <column name="data_nascimento" value="1976-02-08"/>
+            <column name="cpf" value="111.111.111-11"/>
+            <column name="ativo" value="true"/>
+            <column name="patrocinador_codigo" value="2"/>
+            <column name="grupo_codigo" value="2"/>
+            <column name="data_aquisicao" value="2020-01-01"/>
+        </insert>
+
+        <insert tableName="pagamento">
+            <column name="pessoa_codigo" value="2"/>
+            <column name="valor" value="350"/>
+            <column name="data_pagamento" value="2020-01-01"/>
+        </insert>
+
+        <insert tableName="usuario">
+            <column name="codigo" value="2"/>
+            <column name="pessoa_codigo" value="2"/>
+            <column name="nome" value="Wialma Geralda de Moura"/>
+            <column name="email" value="wilma@yahoo.com.br"/>
+            <column name="senha" value="$2a$10$1Zu2O8k8I98bKbxnCJFZ9eH4tUDE/7Ipv/KHiK/qYrYJSxHMIW6/G"/>
+        </insert>
+
+        <insert tableName="usuario_permissao">
+            <column name="usuario_codigo" value="2"/>
+            <column name="permissao_codigo" value="2"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

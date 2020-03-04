@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <include file="/db/changelog/changes/changelog-01-cria-tabela-plano.xml"/>
+    <include file="/db/changelog/changes/changelog-02-cria-tabela-patrocinador.xml"/>
+    <include file="/db/changelog/changes/changelog-03-cria-tabela-grupo.xml"/>
+    <include file="/db/changelog/changes/changelong-04-cria-tabela-grupopatrocinador.xml"/>
+    <include file="/db/changelog/changes/changelong-05-cria-tabela-pessoa.xml"/>
+    <include file="/db/changelog/changes/changelong-06-cria-tabela-pagamento.xml"/>
+    <include file="/db/changelog/changes/changelong-07-cria-tabela-usuario.xml"/>
+    <include file="/db/changelog/changes/changelong-08-cria-tabela-permissao.xml"/>
+    <include file="/db/changelog/changes/changelong-09-cria-tabela-usuariopermissao.xml"/>
+    <include file="/db/changelog/changes/changelong-10-insert.xml"/>
+    <include file="/db/changelog/changes/changelong-11-insert-2.xml"/>
+
+</databaseChangeLog>
