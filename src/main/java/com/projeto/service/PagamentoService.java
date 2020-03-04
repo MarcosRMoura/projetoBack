@@ -91,12 +91,6 @@ public class PagamentoService {
                 int mes = periodo.getMonths();
                 int ano = periodo.getYears();
 
-                System.out.println(cont);
-                System.out.println(pagamentosPessoa.get(cont).getDataPagamento());
-                System.out.println(pagamentosPessoa.get(cont+1).getDataPagamento());
-                System.out.println("Dia = " + dia + " Mes = " + mes + " Ano = " + ano);
-                System.out.println("--------------------------------");
-
                 if ( mes >= 2 ) {
                     situacaoPessoa = false;
                     break;
